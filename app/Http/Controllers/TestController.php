@@ -72,7 +72,7 @@ class TestController extends Controller
 
 //        $user = User::where('id',1)->get();
 //        dd($user[0]);
-
+        return User::factory()->count(5)->make();
 
 
     }
