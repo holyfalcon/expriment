@@ -130,5 +130,34 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <ul class="flex-container">
+                @foreach($posts as $post)
+                    <li class="flex-item">
+                    <div class="PostPicture">
+                        <img src="{{asset($post->image_addr)}}">
+                    </div>
+                    <div class="PostCaption">
+                        <span>{{$post->text}}</span>
+                    </div>
+                    <div class="PostTag">
+                        @foreach($post->tags as $postTag)
+                            <span>{{"#".$postTag->name}}</span>
+                        @endforeach
+                    </div>
+
+                    @if($groups->find($post->group_id)->user_id == Auth::id())
+                        <div class="delete">
+                            <form method="POST" action="{{url('/posts/'.$post->id)}}">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit">پاک کردن</button>
+                            </form>
+                        </div>
+                    @endif
+                </li>
+                @endforeach
+            </ul>
+        </div>
     </body>
 </html>
