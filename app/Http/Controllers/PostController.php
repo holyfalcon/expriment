@@ -6,7 +6,10 @@ use App\Models\Group;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Repositories\PostRepository;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 
 class PostController extends Controller
 {
@@ -77,6 +80,8 @@ class PostController extends Controller
             $nameTag = $postTag->where('name',$tag)->get();
             $post->tags()->attach($nameTag[0]->id);
         }
+
+        Session::flash('message','Your Post has been created.');
 
         return redirect()->back();
     }

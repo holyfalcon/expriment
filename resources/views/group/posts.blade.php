@@ -13,6 +13,7 @@
 <body>
 
 <div class="container">
+    @include('partials.flash')
     <div class="Group_content">
         <h1>Your Posts!</h1>
 
