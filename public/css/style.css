@@ -1,0 +1,58 @@
+body{
+    background-color: #f3f4f6;
+
+}
+.Group_content{
+    padding: 3%;
+}
+.group_post{
+    color: #1a202c;
+    padding: 0.5em;
+}
+.group_post:hover{
+    color: #0090ff;
+    text-decoration: none;
+}
+.flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.flex-container li{
+    margin: 1em;
+}
+.flex-item{
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(68, 68, 69, 0.42);
+}
+
+.PostPicture{
+    width: 250px;
+    text-align: center;
+}
+.PostPicture img{
+    width: 95%;
+}
+.PostCaption{
+    width: 250px;
+    padding: 1em;
+    text-align: left;
+}
+.PostTag{
+    padding: 1em;
+    color: #0090ff;
+    border-top: 1px solid #2d3748;
+}
+
+.delete button{
+    border: none;
+    background: #ff0000;
+    color: white;
+    padding: 0.5em;
+    cursor: pointer;
+    float: right;
+}
