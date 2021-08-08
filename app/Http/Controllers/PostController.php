@@ -81,7 +81,7 @@ class PostController extends Controller
             $post->tags()->attach($nameTag[0]->id);
         }
 
-        Session::flash('message','Your Post has been created.');
+        flash('Your Post has been created.');
 
         return redirect()->back();
     }

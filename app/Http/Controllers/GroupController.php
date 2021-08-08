@@ -63,8 +63,7 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        dd($group);
-//        return redirect('/posts');
+        //
     }
 
 

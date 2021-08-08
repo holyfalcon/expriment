@@ -1,8 +1,8 @@
-@if(Session::has('message'))
-    <div class="alert alert-info alert-dismissible" role="alert">
+@if(session()->has('flash_message'))
+    <div class="alert alert-{{session('flash_level')}} alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert">
             <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
         </button>
-        {{Session::get('message')}}
+        {{session('flash_message')}}
     </div>
 @endif
