@@ -51,8 +51,8 @@ class PostController extends Controller
      */
     public function store(Request $request,$group)
     {
-        $postTag = resolve('Tag');
-        $post = resolve('Post');
+        $postTag = app('Tag');
+        $post = app('Post');
 
         $request->validate([
             'caption' => 'required|string|max:1024|min:3',
