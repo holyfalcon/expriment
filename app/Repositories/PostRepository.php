@@ -22,4 +22,10 @@ class PostRepository extends Repository
     {
         return Post::where('group_id',$groupId)->orderBy('id', 'desc')->get();
     }
+
+    public function createAndId(array $data)
+    {
+        $post = $this->create($data);
+        return $post->id;
+    }
 }

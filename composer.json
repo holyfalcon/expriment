@@ -31,7 +31,8 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files":[
-            "app/helpers/flash.php"
+            "app/helpers/flash.php",
+            "app/helpers/ImageStore.php"
         ]
     },
     "autoload-dev": {

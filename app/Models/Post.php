@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable=['image_addr','text'];
+    protected $fillable=['image_addr','text','group_id'];
 
     public function group()
     {

@@ -19,7 +19,7 @@ class PostController extends Controller
 
     public function __construct()
     {
-        $posts = resolve('PostRepository');
+        $posts = app('PostRepository');
         $this->posts = $posts;
     }
     /**
@@ -53,27 +53,19 @@ class PostController extends Controller
     public function store(StorePostRequest $request,$group)
     {
         $postTag = app('Tag');
-        $post = app('Post');
 
         $validated = $request->validated();
-
-
-        $caption = $validated['caption'];
-        $file = $validated['imagePost'];
-        $imgname = 'storage/' . time() . $file->getClientOriginalName();
-        $file->move('storage', $imgname);
-
-
-        $post->image_addr = $imgname;
-        $post->text = $caption;
-        $post->group_id = $group;
-        $post->save();
-
         $tags = $validated['tags'];
+        $imagename = storeImage($validated['imagePost']);
+
+        $post = $this->posts->create([
+            'image_addr'=>$imagename,
+            'text'=>$validated['caption'],
+            'group_id'=>$group
+        ]);
 
         $id = $post->id;
         $post = $this->posts->find($id);
-
         foreach ($tags as $tag){
             $nameTag = $postTag->where('name',$tag)->get();
             $post->tags()->attach($nameTag[0]->id);
