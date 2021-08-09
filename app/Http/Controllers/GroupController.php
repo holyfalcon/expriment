@@ -45,13 +45,15 @@ class GroupController extends Controller
      */
     public function store(StoreGroupRequest $request)
     {
-        $group = app('Group');
+        $group = app('GroupRepository');
 
         $validated = $request->validated();
 
-        $group->name = $validated['name'];
-        $group->user_id = Auth::id();
-        $group->save();
+        $group->create([
+            'name'=>$validated['name'],
+            'user_id'=>Auth::id()
+        ]);
+
         return redirect()->back();
     }
 
