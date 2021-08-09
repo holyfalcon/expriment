@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\Group;
 use App\Models\Post;
 use App\Models\Tag;
@@ -49,20 +50,16 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$group)
+    public function store(StorePostRequest $request,$group)
     {
         $postTag = app('Tag');
         $post = app('Post');
 
-        $request->validate([
-            'caption' => 'required|string|max:1024|min:3',
-            'imagePost' => 'max:1000|required|image',
-            'tags' => 'required'
-        ]);
+        $validated = $request->validated();
 
 
-        $caption = $request->caption;
-        $file = $request->file('imagePost');
+        $caption = $validated['caption'];
+        $file = $validated['imagePost'];
         $imgname = 'storage/' . time() . $file->getClientOriginalName();
         $file->move('storage', $imgname);
 
@@ -71,7 +68,7 @@ class PostController extends Controller
         $post->group_id = $group;
         $post->save();
 
-        $tags = $request->tags;
+        $tags = $validated['tags'];
 
         $id = $post->id;
         $post = $this->posts->find($id);
