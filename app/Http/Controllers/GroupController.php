@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreGroupRequest;
 use App\Models\Group;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -42,14 +43,13 @@ class GroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreGroupRequest $request)
     {
         $group = app('Group');
-        $request->validate([
-            'name' => 'required|string|max:255|min:3|unique:groups',
-        ]);
 
-        $group->name = $request->name;
+        $validated = $request->validated();
+
+        $group->name = $validated['name'];
         $group->user_id = Auth::id();
         $group->save();
         return redirect()->back();

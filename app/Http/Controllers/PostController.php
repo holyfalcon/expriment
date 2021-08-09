@@ -63,6 +63,7 @@ class PostController extends Controller
         $imgname = 'storage/' . time() . $file->getClientOriginalName();
         $file->move('storage', $imgname);
 
+
         $post->image_addr = $imgname;
         $post->text = $caption;
         $post->group_id = $group;
