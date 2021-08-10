@@ -37,6 +37,7 @@ class ComposerStaticInit0afc9178edbddbd584870a19fd6262bb
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '98caa11a197f6516a8e48aa4abb5ccc6' => __DIR__ . '/..' . '/inertiajs/inertia-laravel/helpers.php',
         '1e82fb8c64767b0fe04d1337c52071e9' => __DIR__ . '/../..' . '/app/helpers/flash.php',
+        '6dd93bb55118dda96730f9ab07f143c7' => __DIR__ . '/../..' . '/app/helpers/helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -532,6 +533,7 @@ class ComposerStaticInit0afc9178edbddbd584870a19fd6262bb
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\CreateUser' => __DIR__ . '/../..' . '/app/Console/Commands/CreateUser.php',
         'App\\Console\\Commands\\DemoCron' => __DIR__ . '/../..' . '/app/Console/Commands/DemoCron.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Core\\Event' => __DIR__ . '/../..' . '/app/Core/Event.php',
@@ -568,6 +570,8 @@ class ComposerStaticInit0afc9178edbddbd584870a19fd6262bb
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
+        'App\\Http\\Requests\\StoreGroupRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreGroupRequest.php',
+        'App\\Http\\Requests\\StorePostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StorePostRequest.php',
         'App\\Jobs\\Reports' => __DIR__ . '/../..' . '/app/Jobs/Reports.php',
         'App\\Listeners\\LogSuccessfulLogin' => __DIR__ . '/../..' . '/app/Listeners/LogSuccessfulLogin.php',
         'App\\Listeners\\SendPodcastNotification' => __DIR__ . '/../..' . '/app/Listeners/SendPodcastNotification.php',

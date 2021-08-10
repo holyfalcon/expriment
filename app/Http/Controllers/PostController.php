@@ -52,11 +52,11 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request,$group)
     {
-        $postTag = app('Tag');
+
 
         $validated = $request->validated();
         $tags = $validated['tags'];
-        $imagename = storeImage($validated['imagePost']);
+        $imagename = $this->storeImage($validated['imagePost']);
 
         $post = $this->posts->create([
             'image_addr'=>$imagename,
@@ -64,13 +64,7 @@ class PostController extends Controller
             'group_id'=>$group
         ]);
 
-        $id = $post->id;
-        $post = $this->posts->find($id);
-        foreach ($tags as $tag){
-            $nameTag = $postTag->where('name',$tag)->get();
-            $post->tags()->attach($nameTag[0]->id);
-        }
-
+        $this->PostTag($post,$tags);
         flash('Your Post has been created.');
 
         return redirect()->back();
@@ -121,4 +115,24 @@ class PostController extends Controller
         $post->delete();
         return redirect()->back();
     }
+
+    private function storeImage($ImageObject){
+
+        $file = $ImageObject;
+        $imgname = 'storage/' . time() . $file->getClientOriginalName();
+        $file->move('storage', $imgname);
+        return $imgname;
+    }
+
+    private function PostTag($post,$tags){
+        $postTag = app('Tag');
+        $id = $post->id;
+        $post = $this->posts->find($id);
+        foreach ($tags as $tag){
+            $nameTag = $postTag->where('name',$tag)->get();
+            $post->tags()->attach($nameTag[0]->id);
+        }
+    }
+
+
 }

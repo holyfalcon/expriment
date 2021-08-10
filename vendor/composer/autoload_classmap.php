@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\CreateUser' => $baseDir . '/app/Console/Commands/CreateUser.php',
     'App\\Console\\Commands\\DemoCron' => $baseDir . '/app/Console/Commands/DemoCron.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Core\\Event' => $baseDir . '/app/Core/Event.php',
@@ -42,6 +43,8 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\Auth\\LoginRequest' => $baseDir . '/app/Http/Requests/Auth/LoginRequest.php',
+    'App\\Http\\Requests\\StoreGroupRequest' => $baseDir . '/app/Http/Requests/StoreGroupRequest.php',
+    'App\\Http\\Requests\\StorePostRequest' => $baseDir . '/app/Http/Requests/StorePostRequest.php',
     'App\\Jobs\\Reports' => $baseDir . '/app/Jobs/Reports.php',
     'App\\Listeners\\LogSuccessfulLogin' => $baseDir . '/app/Listeners/LogSuccessfulLogin.php',
     'App\\Listeners\\SendPodcastNotification' => $baseDir . '/app/Listeners/SendPodcastNotification.php',

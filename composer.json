@@ -32,7 +32,7 @@
         },
         "files":[
             "app/helpers/flash.php",
-            "app/helpers/ImageStore.php"
+            "app/helpers/helper.php"
         ]
     },
     "autoload-dev": {
