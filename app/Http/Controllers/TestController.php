@@ -7,10 +7,13 @@ use App\Core\Persian;
 use App\Core\SignEvent;
 use App\Core\Solid;
 
+use App\Mail\EmailSayHello;
+
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Core\EventTag;
@@ -72,8 +75,10 @@ class TestController extends Controller
 
 //        $user = User::where('id',1)->get();
 //        dd($user[0]);
-        return User::factory()->count(5)->make();
-
+//        return User::factory()->count(5)->make();
+//        $user = $user->find(3);
+//
+//        Mail::to('shahin.bozorgi96@yahoo.com')->send(new EmailSayHello($user));
 
     }
 }
